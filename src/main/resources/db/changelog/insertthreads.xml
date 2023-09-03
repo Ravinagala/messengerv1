@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+    
+    <changeSet id="insert_threads" author="ravi">
+        <insert tableName="threads">
+            <column name="thread_type" value="One-on-One"/>
+            <column name="name" value="Chat 1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert_more_threads" author="ravi">
+        <insert tableName="threads">
+            <column name="thread_type" value="Group Chat"/>
+            <column name="name" value="Team Chat"/>
+        </insert>
+
+        <insert tableName="threads">
+            <column name="thread_type" value="Secret Conversation"/>
+            <column name="name" value="Secure Chat"/>
+        </insert>
+
+        <insert tableName="threads">
+            <column name="thread_type" value="Business Thread"/>
+            <column name="name" value="Support Chat"/>
+        </insert>
+
+        <insert tableName="threads">
+            <column name="thread_type" value="BroadCast"/>
+            <column name="name" value="Announcements"/>
+        </insert>
+    </changeSet>
+    
+
+</databaseChangeLog>    

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+     <changeSet id="create_thread_messages" author="ravi">
+         <createTable tableName="thread_messages">
+             <column name="message_id" type="int" autoIncrement="true">
+                 <constraints primaryKey="true"/>
+             </column>
+
+             <column name="from_userid" type="int">
+
+             </column>
+
+             <column name="thread_id" type="int">
+
+             </column>
+
+             <column name="content" type="varchar(100)">
+                 <constraints nullable="false"/>
+             </column>
+
+             <column name="timestamp" type="datetime">
+                 <constraints nullable="false"/>
+             </column>
+         </createTable>
+     </changeSet>
+
+    <changeSet id="add_fk1" author="ravi">
+        <addForeignKeyConstraint baseTableName="thread_messages" baseColumnNames="from_userid" constraintName="fk_thread_messages_user_id" referencedTableName="users"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="thread_messages" baseColumnNames="thread_id" constraintName="fk_thread_messages_thread_id" referencedTableName="threads"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+
+</databaseChangeLog>
